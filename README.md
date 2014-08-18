@@ -1,5 +1,4 @@
-fullsize-ispconfig-theme
-========================
+#Fullsize ISPConfig 3 theme
 
 A simple graphical enhancement of the default theme of ISPConfig 3.
 
