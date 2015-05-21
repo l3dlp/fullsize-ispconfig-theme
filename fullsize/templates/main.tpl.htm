@@ -5,22 +5,27 @@
         <meta charset="<tmpl_var name="html_content_encoding">" />
         <title><tmpl_var name="app_title"> <tmpl_var name="app_version"></title>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-        <link href="themes/{tmpl_var name="theme"}/css/styles.css" rel="stylesheet" media="screen" type="text/css" />
-        <link href="themes/{tmpl_var name="theme"}/css/print.css" rel="stylesheet" media="print" type="text/css" />
-        <!--[if IE 9]><link href="themes/{tmpl_var name="theme"}/css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
-        <!--[if lte IE 8]><script type="text/javascript" src="themes/{tmpl_var name="theme"}/js/html5shiv.js"></script><![endif]-->
-        <!--[if lte IE 7]><link href="themes/{tmpl_var name="theme"}/css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
-        <link href="themes/{tmpl_var name="theme"}/css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
-        <link rel="shortcut icon" href="/themes/{tmpl_var name="theme"}/images/favicon.ico" />
+        <link href="themes/fullsize/css/styles.css" rel="stylesheet" media="screen" type="text/css" />
+        <link href="themes/fullsize/css/print.css" rel="stylesheet" media="print" type="text/css" />
+        <!--[if IE 9]><link href="themes/fullsize/css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
+        <!--[if lte IE 8]><script type="text/javascript" src="themes/fullsize/js/html5shiv.js"></script><![endif]-->
+        <!--[if lte IE 7]><link href="themes/fullsize/css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
+        <link href="themes/fullsize/css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="/themes/fullsize/images/favicon.ico" />
         <script type="text/javascript" src="js/jquery-1.6.3.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
         <script type="text/javascript" src="js/scrigo.js.php"></script>
         <script type="text/javascript" src="js/uni-form/uni-form.jquery.js"></script>
         <script type="text/javascript" src="js/jquery.ispconfigsearch.js"></script>
         <script type="text/javascript" src="js/jquery.tipsy.js"></script>
+        <tmpl_loop name="js_d_includes">
+            <script type="text/javascript" src="js/js.d/<tmpl_var name='file'>"></script>
+        </tmpl_loop>
         <script language="JavaScript" type="text/javascript">
             jQuery(document).ready(function() {
                 loadInitContent();
+				
+				$('form').not('#dummy_login_form').attr('autocomplete','off');
                 
                 $("#pageForm").submit(function(e){
                     //Prevent form submit: e.preventDefault() in lists
@@ -43,13 +48,16 @@
                 
                 jQuery('.ttip').tipsy({live: true, gravity: 'ne', html: true});
                 
-                tabChangeDiscard = '<tmpl_var name="tabchange_discard_enabled>';
-                tabChangeWarning = '<tmpl_var name="tabchange_warning_enabled>';
+                tabChangeDiscard = '<tmpl_var name="tabchange_discard_enabled">';
+                tabChangeWarning = '<tmpl_var name="tabchange_warning_enabled">';
                 tabChangeWarningTxt = '<tmpl_var name="global_tabchange_warning_txt">';
                 tabChangeDiscardTxt = '<tmpl_var name="global_tabchange_discard_txt">';
 				
 				// Store password in browser; works in Firefox, but not Chrome
 				$('#username').live("blur", function(){
+					if($('#username').val() == '') {
+						return true;
+					}
 					if($('#dummy_username').val() == '' || $('#dummy_username').val() != $(this).val()){
 						$('#dummy_login').show();
 						$('#dummy_username').attr('value', $(this).val()).trigger('focus').trigger('blur');
@@ -141,7 +149,8 @@
                         <tmpl_if name='usertype' op='==' value='normaluser'><input type="text" id="globalsearch" size="25" value="" /></tmpl_if>
                     </tmpl_if>
                 </nav>
-                <h1 id="ir-HeaderLogo" class="swap" style="background-image:url('themes/{tmpl_var name="theme"}/images/header_logo.png');"><span>APOSTELO</span></h1>
+                <h1 id="ir-HeaderLogo" class="swap" style="background-image:url('{tmpl_var name='app_logo'}');"><span>ISPConfig 3</span></h1>
+                <span>hosting control panel</span>
             </header>
             <!-- end: header -->
             <a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
@@ -155,6 +164,7 @@
                 <!-- begin: #content -->
                 <section id="content">
                     <form method="post" action="" id="pageForm" name="pageForm" enctype="multipart/form-data" class="uniForm">
+						<input type="text" style="display:none" /><input type="password" style="display:none"/>
                         <div id="pageContent"><!-- AJAX CONTENT --></div>
                     </form>
                     <div id="ie_clearing">&nbsp;</div>
@@ -163,10 +173,10 @@
                 <!-- end: #content -->
             </section>
             <!-- end: #main -->
-            <!-- begin: footer 
+            <!-- begin: footer -->
             <footer>
                 Powered by <a href="<tmpl_var name="app_link">" target="_blank"><tmpl_var name="app_title"></a>
-            </footer> end: footer -->
+            </footer><!-- end: footer -->
         </div>
 		
 <div id="dummy_login" style="display:none;position:absolute;top:-1000px;left:-1000px;">
