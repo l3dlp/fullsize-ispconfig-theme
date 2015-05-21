@@ -12,7 +12,7 @@ Just adding clarity, quickly done.
 ![Screenshot](https://l3dlp.com/github/fullsize-ispconfig-theme/screenshot.jpg)
 
 
-#Wiki
+###Wiki
 
  - [A little help to install your theme](./How-to-install)
  - [The "my template doesn't stay default" bug](./Skip-ISPConfig's-bug)
