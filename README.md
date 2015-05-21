@@ -12,6 +12,8 @@ Just adding clarity, quickly done.
 ![Screenshot](https://l3dlp.com/github/fullsize-ispconfig-theme/screenshot.jpg)
 
 
+-
+
 ###Wiki
 
  - [A little help to install your theme](./How-to-install)
