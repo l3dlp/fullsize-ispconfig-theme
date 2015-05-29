@@ -16,5 +16,5 @@ Just adding clarity, quickly done.
 
 ###Wiki
 
- - [A little help to install your theme](./How-to-install)
- - [The "my template doesn't stay default" bug](./Skip-ISPConfig's-bug)
+ - [A little help to install your theme](/l3dlp/fullsize-ispconfig-theme/wiki/How-to-install)
+ - [The "my template doesn't stay default" bug](/l3dlp/fullsize-ispconfig-theme/wiki/Skip-ISPConfig's-bug)
