@@ -1,6 +1,6 @@
 ###Fullsize ISPConfig 3 theme
 
-*Last checked version:*  **ISPConfig v3.0.5.4p6**
+*Last checked version:*  **ISPConfig v3.0.5.4p8**
 
 -
 
