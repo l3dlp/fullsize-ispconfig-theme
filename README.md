@@ -9,7 +9,7 @@ A simple graphical enhancement of the default theme of ISPConfig 3.
 Just adding clarity, quickly done.
 
 
-![Screenshot](https://l3dlp.com/github/fullsize-ispconfig-theme/screenshot.jpg)
+![Screenshot](https://lab.l3dlp.com/github/fullsize-ispconfig-theme/screenshot.jpg)
 
 
 -
